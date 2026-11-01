@@ -322,6 +322,20 @@ button.link { background: none; border: 0; color: var(--royal); font: inherit; f
 .chips.dots .sw i { width: 34px; height: 34px; box-shadow: inset 0 0 0 1px rgba(128,128,128,.35); }
 .chips.dots input:checked + .sw { border-color: var(--thread); background: transparent; }
 .hint.warn { color: var(--thread); }
+
+/* Versão enxuta */
+section { padding-block: 64px 4px; }
+.partners { display: flex; flex-wrap: wrap; gap: 12px; }
+.partners span { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 12px 24px; font-family: var(--font-display); font-weight: 700; font-size: 18px; }
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.quotes figure { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 18px; }
+.quotes blockquote { margin: 0; font-size: 16px; line-height: 1.6; }
+.quotes figcaption { margin-top: auto; font-size: 13px; color: var(--muted); font-weight: 600; }
+.contact-card { background: var(--hero-bg); color: #fff; border-radius: 24px; padding: 40px; display: grid; gap: 14px; justify-items: start; }
+.contact-card h2 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; }
+.contact-card p { color: #c3cde6; }
+.contact-card .btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+@media (max-width: 860px) { .quotes { grid-template-columns: 1fr; } .contact-card { padding: 28px; } }
 </style>
 
 </head>
@@ -338,10 +352,8 @@ button.link { background: none; border: 0; color: var(--royal); font: inherit; f
         <span><b>UZZA</b><small>UNIFORMES</small></span>
       </a>
       <nav class="nav" aria-label="Principal">
-        <a href="#inicio">Equipes</a>
         <a href="#personalize">Monte o seu</a>
-        <a href="#como-pedir">Como pedir</a>
-        <a href="#fabrica">A fábrica</a>
+        <a href="#parceiros">Clientes</a>
         <a href="#contato">Contato</a>
       </nav>
     </header>
@@ -408,104 +420,51 @@ button.link { background: none; border: 0; color: var(--royal); font: inherit; f
     </div>
   </section>
 
-  <section id="clientes" hidden>
+  <section id="parceiros">
     <div class="sec-head">
-      <p class="label">Quem já veste Uzza</p>
-      <h2>Empresas que confiam na Uzza.</h2>
+      <p class="label">Quem já usa a Uzza</p>
+      <h2>Empresas que vestem a Uzza.</h2>
     </div>
-    <div class="clients" id="clients"></div>
-  </section>
-
-  <section id="como-pedir">
-    <div class="sec-head">
-      <p class="label">Como pedir</p>
-      <h2>Do orçamento à entrega, em três passos.</h2>
-    </div>
-    <ol class="steps">
-      <li><span class="dot"></span><h3>Conte o que sua equipe precisa</h3><p>Escolha as peças e a quantidade e envie a logo da empresa pelo formulário ou pelo WhatsApp.</p></li>
-      <li><span class="dot"></span><h3>Receba o orçamento</h3><p>Nossa equipe responde com valores e prazo para o seu pedido, sem compromisso.</p></li>
-      <li><span class="dot"></span><h3>Produzimos e entregamos</h3><p>Aprovado o orçamento, o pedido vai para a linha de costura e volta pronto, com a identidade da sua empresa.</p></li>
-    </ol>
-  </section>
-
-  <section id="fabrica">
-    <div class="sec-head">
-      <p class="label">A fábrica</p>
-      <h2>O lugar onde tecidos se tornam uniformes que transformam empresas.</h2>
-      <p>A Uzza produz em fábrica própria, em Ibirité. Cada peça passa pela nossa linha de costura, feita por uma equipe que cuida do acabamento ponto a ponto.</p>
-    </div>
-    <div class="fab">
-      <article>
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 36h36M10 36V20l10-8h8l10 8v16"/><path d="M18 36v-9h12v9" stroke-dasharray="3 3"/></svg>
-        <h3>Produção própria</h3>
-        <p>Da modelagem à costura, o processo acontece na nossa fábrica. Você fala direto com quem produz.</p>
-      </article>
-      <article>
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 24h36" stroke-dasharray="5 4"/><path d="M14 14l-4 20M38 14l-4 20"/><circle cx="24" cy="24" r="6"/></svg>
-        <h3>Costura de excelência</h3>
-        <p>Acabamento firme e alinhado, pensado para o uso diário e para lavagens frequentes.</p>
-      </article>
-      <article>
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 8l5 10 11 1.6-8 7.8 1.9 11L24 33l-9.9 5.4 1.9-11-8-7.8L19 18z"/></svg>
-        <h3>Presença e identidade</h3>
-        <p>Logo bordada ou estampada, cores da marca e modelo certo para cada função. Seu time é reconhecido antes de falar.</p>
-      </article>
+    <div class="partners">
+      <span>Forte Distribuidora</span>
+      <span>Reframax Runners</span>
     </div>
   </section>
 
-  <section id="duvidas">
+  <section id="depoimentos">
     <div class="sec-head">
-      <p class="label">Dúvidas frequentes</p>
-      <h2>O que as empresas perguntam antes de pedir.</h2>
+      <p class="label">Avaliações</p>
+      <h2>O que dizem os nossos clientes.</h2>
     </div>
-    <div class="faq">
-      <details><summary>Posso colocar a logo da minha empresa?</summary><p>Sim. Os uniformes saem com a identidade de cada empresa. Envie a logo em PNG ou vetor pelo WhatsApp.</p></details>
-      <details><summary>Como peço um orçamento?</summary><p>Monte o modelo aqui na página e envie pelo WhatsApp, ou use o formulário de contato. A mensagem já vai pronta.</p></details>
-      <details><summary>Quais peças vocês fazem?</summary><p>Polos bordadas, camisas sociais, suéteres, calças, jalecos e uniformes de produção e saúde. Para outro modelo, pergunte pelo WhatsApp.</p></details>
+    <div class="quotes">
+      <figure>
+        <blockquote>“Quero deixar meu agradecimento pelo ótimo atendimento que recebi da equipe da Uzza Uniformes. A entrega foi realizada antes do prazo estipulado e o material das blusas é excelente, superando todas as expectativas.”</blockquote>
+        <figcaption>cl participações · avaliação no Google</figcaption>
+      </figure>
+      <figure>
+        <blockquote>“Não poderia deixar de ressaltar a qualidade do atendimento e dos produtos. Atendimento rápido e humanizado. Meus agradecimentos ao vendedor Alexandre.”</blockquote>
+        <figcaption>Cliente · avaliação no Google</figcaption>
+      </figure>
+      <figure>
+        <blockquote>“A camisa de corrida e a bandeira ficaram simplesmente incríveis, design impecável e ótima qualidade de impressão. Pontualidade na entrega e atenção aos detalhes.”</blockquote>
+        <figcaption>Reframax Runners</figcaption>
+      </figure>
     </div>
   </section>
 
   <section id="contato">
-    <div class="sec-head">
-      <p class="label">Contato</p>
+    <div class="contact-card">
+      <p class="label" style="color:var(--thread)">Contato</p>
       <h2>Seu time com a melhor imagem começa aqui.</h2>
-    </div>
-    <div class="contact">
-      <div class="info">
-        <dl>
-          <div><dt>WhatsApp</dt><dd><a class="plain" href="https://wa.me/553187139708" target="_blank" rel="noopener">(31) 8713-9708</a></dd></div>
-          <div><dt>Telefone</dt><dd>(31) 3099-0015</dd></div>
-          <div><dt>Horário</dt><dd>07h00 às 17h00</dd></div>
-          <div><dt>Endereço</dt><dd>Rua Deolinda Ferreira Diniz, 15<br>Bairro Central Park · Ibirité, MG</dd></div>
-          <div><dt>Instagram</dt><dd><a class="plain" href="https://www.instagram.com/uzzauniformes" target="_blank" rel="noopener">@uzzauniformes</a></dd></div>
-        </dl>
-        <div class="btns">
-          <a class="btn outline" href="https://www.google.com/maps/search/?api=1&query=Rua+Deolinda+Ferreira+Diniz+15+Ibirit%C3%A9+MG" target="_blank" rel="noopener">Ver no mapa</a>
-        </div>
+      <p>Rua Deolinda Ferreira Diniz, 15 · Central Park · Ibirité, MG<br>Atendimento das 07h00 às 17h00</p>
+      <div class="btns">
+        <a class="btn wa" href="https://wa.me/553187139708?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20uniformes." target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>Chamar no WhatsApp</a>
+        <a class="btn ghost" href="https://www.instagram.com/uzzauniformes" target="_blank" rel="noopener">@uzzauniformes</a>
       </div>
-
-      <form id="orc" novalidate>
-        <h3>Peça seu orçamento</h3>
-        <div class="row">
-          <div class="field"><label for="nome">Seu nome</label><input id="nome" autocomplete="name" placeholder="Ex.: Maria Souza"></div>
-          <div class="field"><label for="empresa">Empresa</label><input id="empresa" autocomplete="organization" placeholder="Ex.: Forte Distribuidora"></div>
-        </div>
-        <div class="row">
-          <div class="field"><label for="peca">Tipo de peça</label>
-            <select id="peca">
-              <option>Polo bordada</option><option>Camisa social</option><option>Suéter</option>
-              <option>Calça</option><option>Jaleco</option><option>Uniforme de produção</option><option>Outro</option>
-            </select></div>
-          <div class="field"><label for="qtd">Quantidade (mínimo 80)</label><input id="qtd" type="number" min="80" step="1" inputmode="numeric" placeholder="80"></div>
-        </div>
-        <div class="field"><label for="msg">Detalhes do pedido</label><textarea id="msg" placeholder="Cores, logo, tamanhos, prazo desejado..."></textarea></div>
-        <a class="btn wa" id="send" href="https://wa.me/553187139708" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>Enviar pelo WhatsApp</a>
-        <p class="hint" id="hint">Se o WhatsApp não abrir, ligue para (31) 3099-0015.</p>
-      </form>
     </div>
   </section>
 
-  <footer><span>UZZA UNIFORMES LTDA - ME · CNPJ 53.011.065/0001-07</span><p class="credit">Site criado por <a href="https://wa.me/5581992702353" target="_blank" rel="noopener">Vitrine Viva</a> · (81) 99270-2353</p></footer>
+  <footer><span>UZZA UNIFORMES</span><p class="credit">Site criado por <a href="https://wa.me/5581992702353" target="_blank" rel="noopener">Vitrine Viva</a> · (81) 99270-2353</p></footer>
 </main>
 
 <a class="fab-wa" href="https://wa.me/553187139708?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20uniformes." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp"><svg class="wa-ico"><use href="#wa"/></svg><span>Chamar no WhatsApp</span></a>
@@ -742,30 +701,6 @@ button.link { background: none; border: 0; color: var(--royal); font: inherit; f
   bgk.addEventListener('change', function () { st.key = bgk.checked; prep(); draw(); });
   clr.addEventListener('click', function () { st.logo = null; st.raw = null; st.mono = null; file.value = ''; clr.hidden = true; bgw.hidden = true; lh.textContent = 'A prévia mostra a logo da Uzza até você enviar a sua.'; draw(); });
 
-  /* Clientes confirmados (preencher so com autorizacao da empresa) */
-  var CLIENTES = [];
-  if (CLIENTES.length) {
-    document.getElementById('clients').innerHTML = CLIENTES.map(function (n) { return '<div>' + n + '</div>'; }).join('');
-    document.getElementById('clientes').hidden = false;
-  }
-
-  /* Formulario */
-  var f = document.getElementById('orc'), send = document.getElementById('send'), hint = document.getElementById('hint');
-  function val(id) { return document.getElementById(id).value.trim(); }
-  function build() {
-    var qtd = parseInt(val('qtd'), 10);
-    var lines = ['Olá! Gostaria de um orçamento de uniformes.'];
-    if (val('nome')) lines.push('Nome: ' + val('nome'));
-    if (val('empresa')) lines.push('Empresa: ' + val('empresa'));
-    lines.push('Peça: ' + val('peca'));
-    if (qtd) lines.push('Quantidade: ' + qtd + ' peças');
-    if (val('msg')) lines.push('Detalhes: ' + val('msg'));
-    send.href = wa(lines.join('\n'));
-    hint.textContent = (qtd && qtd < 80) ? 'A quantidade mínima por pedido é de 80 peças.' : 'Se o WhatsApp não abrir, ligue para (31) 3099-0015.';
-  }
-  f.addEventListener('input', build);
-  f.addEventListener('submit', function (e) { e.preventDefault(); });
-  build();
 })();
 </script>
 
