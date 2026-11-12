@@ -1,16 +1,17 @@
   /* ===== Pedido: modelos reais, logo ao vivo, tamanhos item a item ===== */
   var AS = __ASSETS__;
-  var CLEAN = [AS.tee.base, AS.polo.base, AS.polo2.base];
+  var CLEAN = [AS.azul.base, AS.branca.base, AS.pink.base, AS.cinza2.base];
   var OV = __OV__;
-  var SGMIN = { polo2: 10 };
-  var MIN = 80, KEY = 'uzza-pedido-v7', CW = 640, CH = 960;
+  var SGMIN = {};
+  var MIN = 80, KEY = 'uzza-pedido-v8', CW = 640, CH = 960;
   var LOOKS = [
-    { n: 'Camiseta', c: 'Preta', s: 'Malha, gola careca', t: 'polo', rk: 'tee', ti: 0 },
-    { n: 'Polo', c: 'Branca', s: 'Piquet, gola e botões', t: 'polo', rk: 'polo', ti: 1 },
-    { n: 'Polo bicolor', c: 'Branca com azul Uzza', c2: 'Azul Uzza', s: 'Gola, carcela e punhos em outra cor', t: 'polo', rk: 'polo2', ti: 2, two: true }
+    { n: 'Camisa social', c: 'Azul-claro', s: 'Manga longa, gola em contraste', t: 'polo', rk: 'azul', ti: 0 },
+    { n: 'Camisa social', c: 'Branca', s: 'Manga curta, detalhe no ombro', t: 'polo', rk: 'branca', ti: 1 },
+    { n: 'Camiseta', c: 'Pink', s: 'Malha, gola careca', t: 'polo', rk: 'pink', ti: 2 },
+    { n: 'Camiseta manga 3/4', c: 'Cinza-mescla', s: 'Com faixas nas mangas', t: 'polo', rk: 'cinza2', ti: 3 }
   ];
   var PAL = {
-    polo: [['#262a82', 'Azul Uzza'], ['#22345a', 'Azul-marinho'], ['#2f55a4', 'Azul royal'], ['#8fb4dc', 'Azul-celeste'], ['#f2f3f5', 'Branco'], ['#b4b8c0', 'Cinza-mescla'], ['#808080', 'Cinza Uzza'], ['#3d424c', 'Grafite'], ['#1e1f23', 'Preto'], ['#a8323a', 'Vermelho'], ['#6b2336', 'Bordô'], ['#d8742f', 'Laranja'], ['#d8ac3c', 'Amarelo'], ['#2f6b54', 'Verde']]
+    polo: [['#262a82', 'Azul Uzza'], ['#22345a', 'Azul-marinho'], ['#2f55a4', 'Azul royal'], ['#8fb4dc', 'Azul-celeste'], ['#f2f3f5', 'Branco'], ['#b4b8c0', 'Cinza-mescla'], ['#808080', 'Cinza Uzza'], ['#3d424c', 'Grafite'], ['#1e1f23', 'Preto'], ['#a8323a', 'Vermelho'], ['#c2185b', 'Pink'], ['#6b2336', 'Bordô'], ['#d8742f', 'Laranja'], ['#d8ac3c', 'Amarelo'], ['#2f6b54', 'Verde'], ['#a6d0c4', 'Verde-água']]
   };
   var TIPOS = [['bord', 'Bordado'], ['est', 'Estampa']];
   var SIZES = ['P', 'M', 'G', 'GG', 'XG'];
