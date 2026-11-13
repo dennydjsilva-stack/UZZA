@@ -1,15 +1,16 @@
   /* ===== Pedido: modelos reais, logo ao vivo, tamanhos item a item ===== */
   var AS = __ASSETS__;
-  var CLEAN = [AS.tee.base, AS.polo.base, AS.polo2.base, AS.social.base, AS.jaleco.base];
+  var CLEAN = [AS.tee.base, AS.polo.base, AS.polo2.base, AS.social.base, AS.jaleco.base, AS.set.base];
   var OV = __OV__;
-  var SGMIN = { polo2: 10, social: 8, jaleco: 8 };
+  var SGMIN = { polo2: 10, social: 8, set: 4 };
   var MIN = 80, KEY = 'uzza-pedido-v7', CW = 640, CH = 960;
   var LOOKS = [
     { n: 'Camiseta', c: 'Preta', s: 'Malha, gola careca', t: 'polo', rk: 'tee', ti: 0 },
     { n: 'Polo', c: 'Branca', s: 'Piquet, gola e botões', t: 'polo', rk: 'polo', ti: 1 },
     { n: 'Polo bicolor', c: 'Branca com azul Uzza', c2: 'Azul Uzza', s: 'Gola, carcela e punhos em outra cor', t: 'polo', rk: 'polo2', ti: 2, two: true },
     { n: 'Camisa social', c: 'Azul-claro', s: 'Manga longa, gola clássica', t: 'polo', rk: 'social', ti: 3 },
-    { n: 'Jaleco', c: 'Preto', s: 'Manga longa, 3 bolsos', t: 'polo', rk: 'jaleco', ti: 4 }
+    { n: 'Jaleco', c: 'Branco', s: 'Manga longa, 3 bolsos', t: 'polo', rk: 'jaleco', ti: 4 },
+    { n: 'Conjunto com faixa refletiva', c: 'Cinza', s: 'Camiseta manga longa e calça', t: 'polo', rk: 'set', ti: 5 }
   ];
   var PAL = {
     polo: [['#262a82', 'Azul Uzza'], ['#22345a', 'Azul-marinho'], ['#2f55a4', 'Azul royal'], ['#8fb4dc', 'Azul-celeste'], ['#f2f3f5', 'Branco'], ['#b4b8c0', 'Cinza-mescla'], ['#808080', 'Cinza Uzza'], ['#3d424c', 'Grafite'], ['#1e1f23', 'Preto'], ['#a8323a', 'Vermelho'], ['#6b2336', 'Bordô'], ['#d8742f', 'Laranja'], ['#d8ac3c', 'Amarelo'], ['#2f6b54', 'Verde']]
