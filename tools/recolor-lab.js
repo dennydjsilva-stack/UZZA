@@ -8,8 +8,8 @@
     { n: 'Camiseta', c: 'Preta', s: 'Malha, gola careca', t: 'polo', rk: 'tee', ti: 0 },
     { n: 'Polo', c: 'Branca', s: 'Piquet, gola e botões', t: 'polo', rk: 'polo', ti: 1 },
     { n: 'Polo bicolor', c: 'Branca com azul Uzza', c2: 'Azul Uzza', s: 'Gola, carcela e punhos em outra cor', t: 'polo', rk: 'polo2', ti: 2, two: true },
-    { n: 'Camisa social', c: 'Branca', s: 'Manga longa, bolso no peito', t: 'polo', rk: 'social', ti: 3 },
-    { n: 'Jaleco', c: 'Branco', s: 'Manga longa, gola e 3 bolsos', t: 'polo', rk: 'jaleco', ti: 4 }
+    { n: 'Camisa social', c: 'Azul-claro', s: 'Manga longa, gola clássica', t: 'polo', rk: 'social', ti: 3 },
+    { n: 'Jaleco', c: 'Preto', s: 'Manga longa, 3 bolsos', t: 'polo', rk: 'jaleco', ti: 4 }
   ];
   var PAL = {
     polo: [['#262a82', 'Azul Uzza'], ['#22345a', 'Azul-marinho'], ['#2f55a4', 'Azul royal'], ['#8fb4dc', 'Azul-celeste'], ['#f2f3f5', 'Branco'], ['#b4b8c0', 'Cinza-mescla'], ['#808080', 'Cinza Uzza'], ['#3d424c', 'Grafite'], ['#1e1f23', 'Preto'], ['#a8323a', 'Vermelho'], ['#6b2336', 'Bordô'], ['#d8742f', 'Laranja'], ['#d8ac3c', 'Amarelo'], ['#2f6b54', 'Verde']]
