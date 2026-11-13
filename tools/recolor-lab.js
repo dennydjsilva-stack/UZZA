@@ -261,7 +261,7 @@
   });
   $('quick').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
-    var n = +b.getAttribute('data-n'); SIZES.forEach(function (k) { draft.qty[k] = k === 'XG' ? 0 : n; $('q' + k).value = draft.qty[k]; }); updateAll();
+    var n = +b.getAttribute('data-n'); SIZES.forEach(function (k) { draft.qty[k] = n === 0 ? 0 : draft.qty[k] + n; $('q' + k).value = draft.qty[k]; }); updateAll();
   });
 
   /* ---------- logo do cliente ---------- */
