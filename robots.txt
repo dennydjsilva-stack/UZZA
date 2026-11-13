@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dennydjsilva-stack.github.io/UZZA/sitemap.xml

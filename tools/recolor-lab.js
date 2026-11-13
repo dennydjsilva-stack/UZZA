@@ -289,12 +289,48 @@
     for (var y = 0; y < c.height; y += s) for (var xx = 0; xx < c.width; xx += s) { var p = (y * c.width + xx) * 4; if (d[p + 3] > 128) { t += (d[p] * 299 + d[p + 1] * 587 + d[p + 2] * 114) / 255000; n++; } }
     return n ? t / n : null;
   }
+  function toCanvas(im, up) {
+    var w = im.naturalWidth || im.width, h = im.naturalHeight || im.height; if (!w || !h) return null;
+    var s = Math.min(up ? 1400 / Math.max(w, h) : 1, 1600 / Math.max(w, h)); if (!up) s = Math.min(1, s);
+    var c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w * s)); c.height = Math.max(1, Math.round(h * s));
+    try { c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); } catch (er) { return null; }
+    return c;
+  }
+  function svgFix(f) {
+    return f.text().then(function (t) {
+      var m = t.match(/<svg[^>]*>/i); if (!m) return f;
+      var tag = m[0], vb = tag.match(/viewBox\s*=\s*["']\s*[-\d.]+[\s,]+[-\d.]+[\s,]+([\d.]+)[\s,]+([\d.]+)/i);
+      var hasW = /\swidth\s*=\s*["'][\d.]+(px)?["']/i.test(tag), hasH = /\sheight\s*=\s*["'][\d.]+(px)?["']/i.test(tag);
+      if (vb && (!hasW || !hasH)) { var w = +vb[1], h = +vb[2], k = 1000 / Math.max(w, h); t = t.replace(tag, tag.replace(/\s(width|height)\s*=\s*["'][^"']*["']/gi, '').replace(/<svg/i, '<svg width="' + Math.round(w * k) + '" height="' + Math.round(h * k) + '"')); }
+      return new Blob([t], { type: 'image/svg+xml' });
+    }).catch(function () { return f; });
+  }
+  function decodeFile(f, svg) {
+    var src = svg ? svgFix(f) : Promise.resolve(f);
+    return src.then(function (blob) {
+      var u = URL.createObjectURL(blob);
+      return loadImg(u).then(function (im) {
+        URL.revokeObjectURL(u);
+        if (im && (im.naturalWidth || im.width)) return toCanvas(im, svg);
+        return window.createImageBitmap ? createImageBitmap(blob).then(function (bm) { return toCanvas(bm, false); }, function () { return null; }) : null;
+      });
+    });
+  }
   file.addEventListener('change', function () {
     var f = file.files && file.files[0]; if (!f) return;
-    if (f.size > 6 * 1024 * 1024) { lh.textContent = 'Arquivo grande demais para a prévia. Use um de até 6 MB.'; return; }
-    var r = new FileReader();
-    r.onload = function () { loadImg(r.result).then(function (im) { if (!im) { lh.textContent = 'Não foi possível ler esse arquivo. Tente PNG ou JPG.'; return; } LG.raw = im; LG.mono = null; prepLogo(); clr.hidden = false; lh.textContent = 'Prévia ao vivo com a sua logo. O arquivo vai pelo WhatsApp.'; refresh(); updateAll(); }); };
-    r.readAsDataURL(f);
+    var nm = (f.name || '').toLowerCase(), svg = f.type === 'image/svg+xml' || /\.svg$/.test(nm);
+    if (f.size > 40 * 1024 * 1024) { lh.textContent = 'Arquivo muito grande para a prévia (acima de 40 MB). Envie-o direto pelo WhatsApp.'; return; }
+    lh.textContent = 'Carregando a prévia…';
+    decodeFile(f, svg).then(function (cv) {
+      if (!cv) {
+        LG.raw = null; LG.canvas = null; LG.mono = null; bgw.hidden = true; clr.hidden = false;
+        lh.textContent = 'Este formato não tem prévia aqui, mas o arquivo ' + f.name + ' segue normalmente pelo WhatsApp.';
+        refresh(); updateAll(); return;
+      }
+      LG.raw = cv; LG.mono = null; prepLogo(); clr.hidden = false;
+      lh.textContent = LG.canvas ? 'Prévia ao vivo com a sua logo. O arquivo vai pelo WhatsApp.' : 'Não encontramos desenho visível nesse arquivo. Envie-o pelo WhatsApp.';
+      refresh(); updateAll();
+    });
   });
   bgk.addEventListener('change', function () { LG.key = bgk.checked; prepLogo(); refresh(); updateAll(); });
   clr.addEventListener('click', function () { LG.canvas = null; LG.raw = null; LG.mono = null; file.value = ''; clr.hidden = true; bgw.hidden = true; lh.textContent = 'A prévia mostra a logo da Uzza até você enviar a sua.'; refresh(); updateAll(); });
