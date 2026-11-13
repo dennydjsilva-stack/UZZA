@@ -199,7 +199,7 @@
   /* ---------- passos ---------- */
   function renderModels() {
     $('models').innerHTML = LOOKS.map(function (l, i) {
-      return '<label class="mc' + (l.feat ? ' feat' : '') + '">' + (l.feat ? '<i class="badge">Em destaque</i>' : '') + '<input type="radio" name="md" value="' + i + '"' + (i === draft.look ? ' checked' : '') + '><img src="' + CLEAN[l.ti] + '" alt="' + esc(l.n + ' ' + l.s) + '" loading="lazy"><span><b>' + esc(l.n) + '</b><em>' + esc(l.s) + '</em></span></label>';
+      return '<label class="mc' + (l.feat ? ' feat' : '') + '">' + (l.feat ? '<i class="badge">Promoção Black</i>' : '') + '<input type="radio" name="md" value="' + i + '"' + (i === draft.look ? ' checked' : '') + '><img src="' + CLEAN[l.ti] + '" alt="' + esc(l.n + ' ' + l.s) + '" loading="lazy"><span><b>' + esc(l.n) + '</b><em>' + esc(l.s) + '</em></span></label>';
     }).join('') + '<a class="mc more" href="' + wa('Olá! Gostaria de ver outros modelos de uniformes além dos que aparecem no site.') + '" target="_blank" rel="noopener"><span class="mm" aria-hidden="true">+</span><span><b>Outros modelos</b><em>Fazemos muitos outros. Chame no WhatsApp</em></span></a>';
   }
   /* a prévia só fica fixa na tela depois que a pessoa clica num modelo (ou mexe nas opções) */
@@ -304,6 +304,7 @@
   function updateAll() {
     var n = sum(draft.qty), editing = draft.editId !== null, L = LOOKS[draft.look];
     $('cnCor').textContent = draft.cor ? colName(draft.cor) : L.c; if (L.two) $('cnCor2').textContent = draft.cor2 ? colName(draft.cor2) : L.c2;
+    var pn = $('promoNote'); if (pn) pn.hidden = !L.feat;
     $('cap').textContent = L.n + ' · ' + colTxt(draft).slice(3).toLowerCase() + '. ' + logoTxt(draft) + (LG.canvas ? ' com a sua logo.' : ' da Uzza.');
     $('itemTotal').textContent = n ? n + (n === 1 ? ' peça neste item' : ' peças neste item') : 'Informe a quantidade em ao menos um tamanho.';
     $('addBtn').disabled = n === 0;
@@ -341,7 +342,7 @@
     L.push('Prezados, ' + greeting().toLowerCase() + '.'); L.push('');
     L.push('Gostaria de solicitar um orçamento de uniformes' + (info.empresa ? ' para a ' + info.empresa : '') + ', conforme os itens abaixo.'); L.push('');
     order.forEach(function (it, n) {
-      L.push((n + 1) + ') ' + itemName(it) + colTxt(it));
+      L.push((n + 1) + ') ' + itemName(it) + colTxt(it) + (LOOKS[it.look].feat ? ' · Promoção Black Friday' : ''));
       L.push('    ' + logoTxt(it));
       L.push('    Tamanhos: ' + sizesTxt(it.qty) + ' · Total: ' + sum(it.qty) + ' peças');
     });
