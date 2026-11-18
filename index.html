@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Uzza Uniformes | Fábrica de Uniformes Personalizados em Ibirité, MG</title>
 <meta name="description" content="Fábrica de uniformes em Ibirité, MG: camisas e camisetas com a logo da sua empresa, bordada ou estampada. Monte o pedido e peça orçamento pelo WhatsApp.">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#091159">
 <link rel="canonical" href="https://dennydjsilva-stack.github.io/UZZA/">
@@ -937,7 +938,8 @@ var __d3='data:image/webp;base64,UklGRvxcAABXRUJQVlA4IPBcAACQJwKdASqAAsADPolCnUs
   function logoTxt(d) { return 'Logo ' + (d.tipo === 'bord' ? 'bordada' : 'estampada'); }
   function loadImg(src) { return new Promise(function (res) { var i = new Image(); i.onload = function () { res(i); }; i.onerror = function () { res(null); }; i.src = src; }); }
   function store(save) {
-    try { if (save) localStorage.setItem(KEY, JSON.stringify({ order: order, uid: uid, info: info })); else { var s = localStorage.getItem(KEY); return s ? JSON.parse(s) : null; } } catch (e) { return null; }
+    try { localStorage.removeItem(KEY); } catch (e0) {}
+    try { if (save) sessionStorage.setItem(KEY, JSON.stringify({ order: order, uid: uid, info: info })); else { var s = sessionStorage.getItem(KEY); return s ? JSON.parse(s) : null; } } catch (e) { return null; }
   }
 
   /* ---------- cor: recoloração fotográfica em CIELAB ----------
